@@ -1,0 +1,125 @@
+[
+  {
+    "model": "payres.produto",
+    "pk": 1,
+    "fields": {
+      "nome": "Batata Frita",
+      "preco": 12.50
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 2,
+    "fields": {
+      "nome": "Bolinho de Queijo",
+      "preco": 6.90
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 3,
+    "fields": {
+      "nome": "Carne do Sol",
+      "preco": 30.90
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 4,
+    "fields": {
+      "nome": "Frango Grelhado",
+      "preco": 21.20
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 5,
+    "fields": {
+      "nome": "Peixe Frito",
+      "preco": 23.90
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 6,
+    "fields": {
+      "nome": "Salada Fitness",
+      "preco": 18.50
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 7,
+    "fields": {
+      "nome": "Lasanha Quatro Queijos",
+      "preco": 20.30
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 8,
+    "fields": {
+      "nome": "Pudim de Leite",
+      "preco": 4.40
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 9,
+    "fields": {
+      "nome": "Sorvete de Chocolate",
+      "preco": 8.20
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 10,
+    "fields": {
+      "nome": "Água Mineral",
+      "preco": 2.50
+    }
+  },
+  {
+    "model": "payres.produto",
+    "pk": 11,
+    "fields": {
+      "nome": "Coca-Cola",
+      "preco": 4.00
+    }
+  },
+  {
+    "model": "payres.mesa",
+    "pk": 1,
+    "fields": {
+      "valorTotal": 0
+    }
+  },
+  {
+    "model": "payres.mesa",
+    "pk": 2,
+    "fields": {
+      "valorTotal": 0
+    }
+  },
+   {
+    "model": "payres.mesa",
+    "pk": 3,
+    "fields": {
+      "valorTotal": 0
+    }
+  },
+  {
+    "model": "payres.mesa",
+    "pk": 4,
+    "fields": {
+      "valorTotal": 0
+    }
+  },
+  {
+    "model": "payres.mesa",
+    "pk": 5,
+    "fields": {
+      "valorTotal": 0
+    }
+  }
+]
