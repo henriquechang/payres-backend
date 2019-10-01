@@ -5,7 +5,8 @@ from .models import Produto
 from .serializers import ProdutoSerializer
 from .models import ProdutoConsumidoMesaAuditoria
 from .serializers import ProdutoConsumidoMesaAuditoriaSerializer
-from rest_framework.decorators import action
+from .models import PagamentoMesaAuditoria
+from .serializers import PagamentoMesaAuditoriaSerializer
 
 
 class ProdutoViewSet(viewsets.ModelViewSet):
@@ -18,3 +19,15 @@ class MesaViewSet(viewsets.ModelViewSet):
 
     serializer_class = MesaSerializer
     queryset = Mesa.objects.all()
+
+
+class ProdutoConsumidoMesaAuditoriaViewSet(viewsets.ModelViewSet):
+
+    serializer_class = ProdutoConsumidoMesaAuditoriaSerializer
+    queryset = ProdutoConsumidoMesaAuditoria.objects.all()
+
+
+class  PagamentoMesaAuditoriaViewSet(viewsets.ModelViewSet):
+
+    serializer_class = PagamentoMesaAuditoriaSerializer
+    queryset = PagamentoMesaAuditoria.objects.all()
