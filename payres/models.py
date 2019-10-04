@@ -22,7 +22,10 @@ class PagamentoMesaAuditoria(models.Model):
 class ProdutoConsumidoMesaAuditoria(models.Model):
 
     pagamentoAberto = models.BooleanField()
+    quantidade = models.IntegerField()
     mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE, related_name='mesa')
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='produto')
+
+
 
 
