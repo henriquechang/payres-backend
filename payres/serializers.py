@@ -23,7 +23,7 @@ class PagamentoMesaAuditoriaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PagamentoMesaAuditoria
-        fields = ['valorPago', 'mesa']
+        fields = '__all__'
 
 
 class ProdutoConsumidoMesaAuditoriaSerializer(serializers.ModelSerializer):

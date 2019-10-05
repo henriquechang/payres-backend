@@ -1,5 +1,6 @@
 from django.http import HttpResponseNotFound, HttpResponse
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from .models import Mesa
@@ -51,7 +52,6 @@ class ProdutoConsumidoMesaAuditoriaViewSet(viewsets.ModelViewSet):
             # check if many is required
             if isinstance(data, list):
                 kwargs["many"] = True
-
         return super(ProdutoConsumidoMesaAuditoriaViewSet, self).get_serializer(*args, **kwargs)
 
 
@@ -83,3 +83,19 @@ class PagamentoMesaAuditoriaViewSet(viewsets.ModelViewSet):
 
         serializer = PagamentoMesaAuditoriaSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class UpdatePagamentoAbertoViewSet(viewsets.ViewSet):
+
+    queryset_pagamento = PagamentoMesaAuditoria.objects.all()
+    queryset_produtos = ProdutoConsumidoMesaAuditoria.objects.all()
+
+    def create(self, request):
+        queryset_pagamento = self.queryset_pagamento
+        queryset_produtos = self.queryset_produtos
+        fk = self.request.query_params.get('mesa', None)
+        if fk is not None:
+            mesa = Mesa.objects.get(id=fk)
+            queryset_produtos.filter(mesa=mesa, pagamentoAberto=True).update(pagamentoAberto=False)
+            queryset_pagamento.filter(mesa=mesa, pagamentoAberto=True).update(pagamentoAberto=False)
+        return Response(data={"message": "Update realizado com sucesso"}, status=status.HTTP_201_CREATED)

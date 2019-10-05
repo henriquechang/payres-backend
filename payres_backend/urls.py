@@ -21,6 +21,7 @@ from payres.views import MesaViewSet
 from payres.views import ProdutoConsumidoMesaAuditoriaViewSet
 from payres.views import PagamentoMesaAuditoriaViewSet
 from payres.views import ProdutoValorMesaViewSet
+from payres.views import UpdatePagamentoAbertoViewSet
 
 router = routers.DefaultRouter()
 router.register(
@@ -37,6 +38,9 @@ router.register(
 )
 router.register(
     'produto_valor_mesa', ProdutoValorMesaViewSet, base_name='produto_valor_mesa'
+)
+router.register(
+    'update_pagamento_aberto', UpdatePagamentoAbertoViewSet, base_name='produto_valor_mesa'
 )
 
 urlpatterns = [
