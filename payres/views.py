@@ -1,4 +1,7 @@
+from django.http import HttpResponseNotFound, HttpResponse
 from rest_framework import viewsets
+from rest_framework.response import Response
+
 from .models import Mesa
 from .serializers import MesaSerializer, ProdutoValorMesaSerializer
 from .models import Produto
@@ -7,7 +10,6 @@ from .models import ProdutoConsumidoMesaAuditoria
 from .serializers import ProdutoConsumidoMesaAuditoriaSerializer
 from .models import PagamentoMesaAuditoria
 from .serializers import PagamentoMesaAuditoriaSerializer
-from django.core import serializers
 
 
 class ProdutoViewSet(viewsets.ModelViewSet):
@@ -53,7 +55,31 @@ class ProdutoConsumidoMesaAuditoriaViewSet(viewsets.ModelViewSet):
         return super(ProdutoConsumidoMesaAuditoriaViewSet, self).get_serializer(*args, **kwargs)
 
 
-class  PagamentoMesaAuditoriaViewSet(viewsets.ModelViewSet):
+class PagamentoMesaAuditoriaViewSet(viewsets.ModelViewSet):
 
     serializer_class = PagamentoMesaAuditoriaSerializer
     queryset = PagamentoMesaAuditoria.objects.all()
+
+    def create(self, request):
+        queryset = self.queryset
+        fk = self.request.query_params.get('mesa', None)
+        if fk is not None:
+            mesa = Mesa.objects.get(id=fk)
+            pagnovo = PagamentoMesaAuditoria(
+                valorPago=self.request.data["valorPago"],
+                mesa=mesa,
+                pagamentoAberto=True
+            )
+            pagnovo.save()
+        serializer = PagamentoMesaAuditoriaSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def list(self, request):
+        queryset = self.queryset
+
+        fk = self.request.query_params.get('mesa', None)
+        if fk is not None:
+            queryset = queryset.filter(mesa=fk, pagamentoAberto=True)
+
+        serializer = PagamentoMesaAuditoriaSerializer(queryset, many=True)
+        return Response(serializer.data)
