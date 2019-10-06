@@ -1,6 +1,4 @@
-from django.http import HttpResponseNotFound, HttpResponse
 from rest_framework import viewsets, status
-from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from .models import Mesa
@@ -85,7 +83,7 @@ class PagamentoMesaAuditoriaViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
-class UpdatePagamentoAbertoViewSet(viewsets.ViewSet):
+class UpdatePagamentoMesaViewSet(viewsets.ViewSet):
 
     queryset_pagamento = PagamentoMesaAuditoria.objects.all()
     queryset_produtos = ProdutoConsumidoMesaAuditoria.objects.all()
