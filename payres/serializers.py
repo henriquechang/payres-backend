@@ -1,3 +1,5 @@
+from decimal import Decimal
+from django.core.validators import MinValueValidator, MaxValueValidator
 from rest_framework import serializers
 from .models import Produto
 from .models import Mesa
@@ -35,6 +37,6 @@ class ProdutoConsumidoMesaAuditoriaSerializer(serializers.ModelSerializer):
 
 class ProdutoValorMesaSerializer(serializers.Serializer):
     produto__nome = serializers.CharField(max_length=60)
-    produto__preco = serializers.DecimalField(max_digits=8, decimal_places=2)
+    produto__preco = serializers.DecimalField(max_digits=8, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     mesa_id = serializers.IntegerField()
-    quantidade =  serializers.IntegerField()
+    quantidade = serializers.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(99)])
