@@ -63,7 +63,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200',
-    'payres-backend.herokuapp.com'
+    'https://payres-backend.herokuapp.com'
 )
 
 ROOT_URLCONF = 'payres_backend.urls'
