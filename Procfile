@@ -1,1 +1,1 @@
-web: gunicorn payres-backend.wsgi --log-file -
+web: gunicorn payres_backend.wsgi --log-file -
