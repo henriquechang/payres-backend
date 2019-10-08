@@ -1,1 +1,1 @@
-web: gunicorn <nameOfProject>.wsgi --log-file -
+web: gunicorn <payres-backend>.wsgi --log-file -
