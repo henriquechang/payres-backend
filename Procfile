@@ -1,2 +1,2 @@
-release: python manage.py migrate && python manage.py loaddata initial-data.json
+release: python manage.py migrate
 web: gunicorn payres_backend.wsgi --log-file -
