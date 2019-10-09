@@ -18,6 +18,6 @@ Pontos de melhoria do sistema:
   - Garçom: Pode apenas lançar consumo e registrar pagamentos.
   - Admin: Pode criar/remover mesas, produtos, lançar consumo e registrar pagamentos.
 - Permitir cancelamento de itens já registrados e ainda não pagos.
-- Criar uma tabela de ingredientes, que define o custo e o estoque de cada produto no cardápio.
-- Criar um estoque para cada ingrediente, que limita o estoque de cada produto no cardápio.
+- Criar uma tabela de ingredientes, que define o custo e o estoque de cada produto
+- Criar um estoque para cada ingrediente, limitando o estoque de cada produto 
 - Permitir pagamento opcional de valor de 10% da conta ao garçom.
